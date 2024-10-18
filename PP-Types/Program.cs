@@ -14,9 +14,21 @@ string[] names = {
 // After last element should be ".".
 void PrintGroups(string[] t, int perLine)
 {
+    for (int i = 0; i < t.Length; i++)
+    {
+        Console.Write(t[i]);
 
-    // Write required code.
-
+        if (i == t.Length - 1)
+        {
+            Console.WriteLine(".");
+        }
+        else if ((i + 1) % perLine == 0)
+            Console.WriteLine(",");
+        else
+        {
+            Console.Write(", ");
+        }
+    }
 }
 
 
@@ -27,10 +39,33 @@ void PrintGroups(string[] t, int perLine)
 
 void PrintColumns(string[] t, int perLine, int width)
 {
+    for (int i = 0; i < t.Length; i++)
+    {
+        Console.Write(t[i]);
+        if ((i + 1) % perLine == 0)
+           Console.WriteLine();
+        string name = names[i];
+        int characterLength = name.Length;
+        //Console.Write(characterLength);
+        if((characterLength > width))
+        {
+            name = name.Substring(0, width);
+        }
+        else if(characterLength < width){
+            int leftCharacters = width - characterLength;
+            name = String.Concat(Enumerable.Repeat(" ", leftCharacters));
 
+        }
+    }
     // Write required code.
 
 }
+//wypisac D
+//zeby sie scinalo jak w 1 
+//jesli liczba char > liczbie width to trim
+//jesli liczba char < width to dodajemy spacje zeby bylo rowno  czyli np x= width-char y = x*" " i wtedy char + y + |i to chyba moze byc jakas jeszcze inna zmienna 
+//na koncu kazdego elementu |
+
 
 
 // Test how your functions work. 
