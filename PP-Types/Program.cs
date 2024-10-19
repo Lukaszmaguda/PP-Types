@@ -41,30 +41,30 @@ void PrintColumns(string[] t, int perLine, int width)
 {
     for (int i = 0; i < t.Length; i++)
     {
-        Console.Write(t[i]);
-        if ((i + 1) % perLine == 0)
-           Console.WriteLine();
         string name = names[i];
-        int characterLength = name.Length;
-        //Console.Write(characterLength);
-        if((characterLength > width))
+
+        if (name.Length > width)
         {
             name = name.Substring(0, width);
         }
-        else if(characterLength < width){
-            int leftCharacters = width - characterLength;
-            name = String.Concat(Enumerable.Repeat(" ", leftCharacters));
 
+        if ((i + 1) % perLine == 0 )
+        {
+            Console.Write(name.PadRight(width));
+        }
+        else
+        {
+            Console.Write(name.PadRight(width) + "| ");
+        }
+        if ((i + 1) % perLine == 0)
+        {
+            Console.WriteLine();
         }
     }
     // Write required code.
 
 }
-//wypisac D
-//zeby sie scinalo jak w 1 
-//jesli liczba char > liczbie width to trim
-//jesli liczba char < width to dodajemy spacje zeby bylo rowno  czyli np x= width-char y = x*" " i wtedy char + y + |i to chyba moze byc jakas jeszcze inna zmienna 
-//na koncu kazdego elementu |
+
 
 
 
